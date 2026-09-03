@@ -5,9 +5,8 @@
     import Synchronization
     import Column
     import Buffer_Ring_Primitive
-    import Storage
     import Memory_Heap
-    import Memory_Allocator_Primitive
+    import Memory_Allocator
     import Buffer
 
     extension Async {
