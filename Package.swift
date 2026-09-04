@@ -24,7 +24,7 @@ let package = Package(
         .package(url: "https://github.com/swift-molecules/swift-column", branch: "main"),
         .package(url: "https://github.com/swift-molecules/swift-deque", branch: "main"),
         .package(url: "https://github.com/swift-molecules/swift-memory-allocation", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-memory-heap", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-memory", branch: "main"),
         .package(url: "https://github.com/swift-molecules/swift-queue", branch: "main"),
     ],
     targets: [
@@ -37,7 +37,7 @@ let package = Package(
                 .product(name: "Column", package: "swift-column"),
                 .product(name: "Deque", package: "swift-deque"),
                 .product(name: "Memory Allocator", package: "swift-memory-allocation"),
-                .product(name: "Memory Heap", package: "swift-memory-heap"),
+                .product(name: "Memory", package: "swift-memory"),
                 .product(name: "Queue", package: "swift-queue"),
             ]
         ),
