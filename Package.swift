@@ -12,41 +12,43 @@ let package = Package(
         .visionOS(.v27),
     ],
     products: [
-        .library(
-            name: "Async Bridge",
-            targets: ["Async Bridge"]
-        )
+        .library(name: "Async Bridge", targets: ["Async Bridge"]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-molecules/swift-async", branch: "main"),
-        .package(url: "https://github.com/swift-atoms/swift-buffer", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-buffer-ring", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-column", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-deque", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-memory-allocation", branch: "main"),
-        .package(url: "https://github.com/swift-atoms/swift-memory", branch: "main"),
-        .package(url: "https://github.com/swift-molecules/swift-queue", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-async.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-buffer.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-buffer-ring.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-column.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-deque.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-memory.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-memory-allocation.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-queue.git", branch: "main"),
+        .package(url: "https://github.com/swift-molecules/swift-storage-memory.git", branch: "main"),
     ],
     targets: [
         .target(
             name: "Async Bridge",
             dependencies: [
-                .product(name: "Async", package: "swift-async"),
+                .product(name: "Async Mutex", package: "swift-async"),
+                .product(name: "Async Primitive", package: "swift-async"),
                 .product(name: "Buffer", package: "swift-buffer"),
-                .product(name: "Buffer Ring", package: "swift-buffer-ring"),
+                .product(name: "Buffer Ring Primitive", package: "swift-buffer-ring"),
                 .product(name: "Column", package: "swift-column"),
                 .product(name: "Deque", package: "swift-deque"),
-                .product(name: "Memory Allocator", package: "swift-memory-allocation"),
                 .product(name: "Memory", package: "swift-memory"),
+                .product(name: "Memory Allocator", package: "swift-memory-allocation"),
                 .product(name: "Queue", package: "swift-queue"),
-            ]
+                .product(name: "Storage Memory", package: "swift-storage-memory"),
+            ],
+            path: "Sources/Async Bridge"
         ),
         .testTarget(
             name: "Async Bridge Tests",
             dependencies: [
-                "Async Bridge",
                 .product(name: "Async", package: "swift-async"),
-            ]
+                .target(name: "Async Bridge"),
+            ],
+            path: "Tests/Async Bridge Tests"
         ),
     ],
     swiftLanguageModes: [.v6]

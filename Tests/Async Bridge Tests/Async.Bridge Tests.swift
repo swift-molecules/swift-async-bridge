@@ -1,11 +1,12 @@
+import Async_Bridge
 import Async
 import Testing
 
 @Suite
-struct BridgeTests {
+struct `Async bridges deliver values and preserve cancellation behavior` {
 
     @Test
-    func `next() does not observe Task cancellation`() async {
+    func `Next() does not observe Task cancellation`() async {
 
         let bridge = Async.Bridge<Int>()
 
@@ -25,7 +26,7 @@ struct BridgeTests {
     }
 
     @Test
-    func `next() returns nil after finish on cancelled task`() async {
+    func `Next() returns nil after finish on cancelled task`() async {
 
         let bridge = Async.Bridge<Int>()
 

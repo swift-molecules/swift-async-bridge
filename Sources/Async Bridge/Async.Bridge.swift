@@ -5,6 +5,7 @@
     import Synchronization
     import Column
     import Buffer_Ring_Primitive
+    import Storage_Memory
     import Memory
     import Memory_Allocator
     import Buffer
