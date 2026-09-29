@@ -3,12 +3,12 @@
     import Queue
     import Deque
     import Synchronization
-    import Column
-    import Buffer_Ring_Primitive
-    import Storage_Memory
     import Memory
     import Memory_Allocator
+    import Storage
     import Buffer
+    import Buffer_Ring_Primitive
+
 
     extension Async {
 
@@ -22,7 +22,7 @@
             }
 
             struct State: ~Copyable {
-                var buffer: Deque<Column.Ring<Element>> = .init()
+                var buffer: Deque<Buffer<Storage<Memory.Allocator<Memory.Heap>>.Contiguous<Element>>.Ring> = .init()
                 var continuation: CheckedContinuation<Void, Never>?
                 var isFinished: Bool = false
                 #if DEBUG
