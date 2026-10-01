@@ -12,11 +12,11 @@ struct `Async bridges deliver values and preserve cancellation behavior` {
 
         let task = Task { await bridge.next() }
 
-        try? await Task.sleep(for: .milliseconds(20))
+        await Task.yield()
 
         task.cancel()
 
-        try? await Task.sleep(for: .milliseconds(20))
+        await Task.yield()
 
         bridge.push(42)
 
@@ -32,9 +32,9 @@ struct `Async bridges deliver values and preserve cancellation behavior` {
 
         let task = Task { await bridge.next() }
 
-        try? await Task.sleep(for: .milliseconds(20))
+        await Task.yield()
         task.cancel()
-        try? await Task.sleep(for: .milliseconds(20))
+        await Task.yield()
 
         bridge.finish()
 
