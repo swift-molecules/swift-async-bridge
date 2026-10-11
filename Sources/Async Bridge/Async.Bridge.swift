@@ -178,7 +178,7 @@
             continuationToResume?.resume()
         }
 
-        public func push<S: Swift.Sequence>(contentsOf elements: S) where S.Element == Element {
+        public func push<S: Swift::Sequence>(contentsOf elements: S) where S.Element == Element {
             let continuationToResume: CheckedContinuation<Void, Never>? = _state.withLock { state in
                 guard !state.isFinished else { return nil }
                 for element in elements {
