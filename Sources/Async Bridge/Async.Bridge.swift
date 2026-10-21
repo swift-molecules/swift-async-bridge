@@ -9,7 +9,6 @@
     import Buffer
     import Buffer_Ring_Primitive
 
-
     extension Async {
 
         public final class Bridge<Element: ~Copyable & Sendable>: Sendable {

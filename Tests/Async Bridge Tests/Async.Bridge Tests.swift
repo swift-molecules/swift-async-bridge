@@ -1,5 +1,5 @@
-import Async_Bridge
 import Async
+import Async_Bridge
 import Testing
 
 @Suite
